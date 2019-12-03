@@ -32,6 +32,40 @@ void ex1_reverse_array() {
 		cin.clear(); cin.ignore(10000,'\n');
 		cout << "Wrong input, try again.\n";
 	}
+	//Count words in line
+	istringstream iss(userinput);
+	char delim = ' ';
+	string item;
+	int counter = 0;
+	while (getline(iss, item, delim)) {
+		counter++;
+	}
+	//Now create an array large enough to hold all the words and write them
+	string* words = new string[counter];
+	int filled = 0;
+	istringstream iss2(userinput);
+	while (getline(iss2, item, delim)) {
+		words[filled] = item;
+		filled++;
+	}
+	//Now reverse all the words in a new array
+	string* reversed = new string[counter];
+	for(int i = counter-1; i >= 0; i--){
+		reversed[(counter-1)-i] = words[i];
+	}
+	for(int i = 0; i < counter; i++){
+		cout << reversed[i] << endl;
+	}
+	delete[] words;
+	delete[] reversed;
+}
+
+void ex1_reverse_vector() {
+	string userinput;
+	if(!(getline(cin, userinput))) {
+		cin.clear(); cin.ignore(10000,'\n');
+		cout << "Wrong input, try again.\n";
+	}
 
 	istringstream iss(userinput);
 	char delim = ' ';
@@ -41,21 +75,8 @@ void ex1_reverse_array() {
 			//From slide 331 VG101
 			words.push_back(item);
 	}
-
+	reverse(words.begin(), words.end());
 	for(unsigned long i = 0; i < words.size(); i++){
-		cout << words[i];
+		cout << words[i] << endl;
 	}
-
-	//char* reversed = new char[strlen(userinput)]; //Works, but is not strictly using arrays as required
-	//char reversed[strlen(userinput)]; //Forbidden by ISO C++ for some reason
-
-	// char reversed[MAXLENGTH];
-	// strcpy(reversed, userinput);
-	// for(unsigned long i = 0; i < strlen(userinput)/2; i++){
-	// 	reversed[i] = userinput[(strlen(userinput) - i - 1)];
-	// 	reversed[strlen(userinput) - i - 1] = userinput[i];
-	// }
-	// cout << reversed << endl;
-
-	//delete[] reversed;
 }
