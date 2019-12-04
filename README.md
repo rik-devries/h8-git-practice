@@ -1,8 +1,11 @@
 # VG101 H8
 
 All of the mandatory exercises have been completed:
+
 	- ex1
+
 	- ex2
+
 	- ex3
 
 # Getting Started
