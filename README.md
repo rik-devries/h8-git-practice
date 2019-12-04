@@ -2,11 +2,11 @@
 
 All of the mandatory exercises have been completed:
 
-	- ex1
+- ex1
 
-	- ex2
+- ex2
 
-	- ex3
+- ex3
 
 # Getting Started
 
